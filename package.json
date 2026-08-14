@@ -6,15 +6,23 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "sanity build",
+    "check": "npm run typecheck && npm run lint && npm run format:check",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "dev": "sanity dev",
-    "start": "sanity start"
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "start": "sanity start",
+    "typecheck": "tsc --noEmit",
+    "typegen": "sanity schemas extract --force --enforce-required-fields && sanity typegen generate",
+    "schemas:deploy": "sanity schemas deploy",
+    "verify": "npm run check && npm run build"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/icons": "^5.2.1",
     "@sanity/vision": "^6.9.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
