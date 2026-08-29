@@ -43,23 +43,23 @@ export const project = defineType({
     }),
     defineField({name: 'year', title: 'Year', type: 'string'}),
     defineField({
+      name: 'squareMeters',
+      title: 'Area (m²)',
+      type: 'number',
+      description: 'Enter only the number. The website adds “m²” automatically.',
+      validation: (rule) => rule.required().positive().precision(2),
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [
         defineArrayMember({
-          type: 'string',
-          options: {
-            list: [
-              {title: 'Residencial', value: 'residential'},
-              {title: 'Comercial', value: 'commercial'},
-              {title: 'Social', value: 'social'},
-              {title: 'Diseño Interno', value: 'interior-design'},
-            ],
-          },
+          type: 'reference',
+          to: [{type: 'projectCategory'}],
         }),
       ],
-      validation: (rule) => rule.required().min(1).max(4).unique(),
+      validation: (rule) => rule.required().min(1).unique(),
     }),
     defineField({
       name: 'services',
@@ -98,6 +98,20 @@ export const project = defineType({
       name: 'homepageImage',
       title: 'Homepage image',
       type: 'projectImage',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'detailImageTwo',
+      title: 'Project page image 2',
+      type: 'projectImage',
+      description: 'Shown directly below the main cover image, on the left.',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'detailImageThree',
+      title: 'Project page image 3',
+      type: 'projectImage',
+      description: 'Shown directly below the main cover image, on the right.',
       validation: (rule) => rule.required(),
     }),
     defineField({

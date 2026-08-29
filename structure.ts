@@ -1,5 +1,6 @@
 import {DocumentTextIcon} from '@sanity/icons/DocumentText'
 import {HomeIcon} from '@sanity/icons/Home'
+import {TagIcon} from '@sanity/icons/Tag'
 import {UsersIcon} from '@sanity/icons/Users'
 import type {StructureResolver} from 'sanity/structure'
 
@@ -30,5 +31,9 @@ export const structure: StructureResolver = (S) =>
             .title('Galería de contacto'),
         ),
       S.divider(),
+      S.listItem()
+        .title('Project categories')
+        .icon(TagIcon)
+        .child(S.documentTypeList('projectCategory').title('Project categories')),
       S.listItem().title('Projects').child(S.documentTypeList('project').title('Projects')),
     ])

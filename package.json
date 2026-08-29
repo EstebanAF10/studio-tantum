@@ -12,6 +12,7 @@
     "dev": "sanity dev",
     "format:check": "prettier --check .",
     "lint": "eslint .",
+    "migrate:project-categories": "sanity exec scripts/migrate-project-categories.mjs --with-user-token",
     "start": "sanity start",
     "typecheck": "tsc --noEmit",
     "typegen": "sanity schemas extract --force --enforce-required-fields && sanity typegen generate",

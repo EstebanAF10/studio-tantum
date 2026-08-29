@@ -3,6 +3,7 @@ import {contactInquiryOption} from './contactInquiryOption'
 import {contactPage} from './contactPage'
 import {homepageSettings} from './homepageSettings'
 import {project} from './project'
+import {projectCategory} from './projectCategory'
 import {projectFilter} from './projectFilter'
 import {projectImage} from './projectImage'
 import {projectsPage} from './projectsPage'
@@ -14,6 +15,7 @@ export const schemaTypes = [
   teamMember,
   contactInquiryOption,
   projectFilter,
+  projectCategory,
   project,
   projectsPage,
   siteSettings,
